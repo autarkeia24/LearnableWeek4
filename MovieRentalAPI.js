@@ -28,3 +28,33 @@ class MovieApi {
     });
   }
   
+  rentMovie(title) {
+    const movie = this.movies.find(movie => movie.title === title);
+
+    if (movie) {
+      if (movie.available) {
+        movie.available = false;
+        console.log(`\n You've just rented "${title}". Enjoy your movie!`);
+      } else {
+        console.log(`\n Oops! Sorry, "${title}" is currently unavailable.`);
+      }
+    } else {
+      console.log(`\n "${title}" not found in the library.`);
+    }
+  }
+}
+
+// Let's test the Movie API
+const admin = new MovieApi();
+
+admin.addMovie("Wish", "Animation");
+admin.addMovie("Aquaman", "Action");
+admin.addMovie("The Kitchen", "Drama");
+admin.addMovie("Lift", "Thriller");
+
+admin.listMovies();
+
+admin.rentMovie("The Kitchen");
+admin.rentMovie("The Marvels");
+
+admin.listMovies();
