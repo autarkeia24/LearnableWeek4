@@ -98,7 +98,40 @@ class NumSet {
     return range;
   }
 
+  static findMeanDev(array) {
+    // declare a sum variable and initialize to 0
+    let sum = 0;
+    // set a loop to sum (x- mean) for all values of x in array
+    for (let x of array) {
+      sum = sum + Math.abs(x - DataSet.calcMean(array));
+    }
 
+    // divide the sum by array length to get mean deviation
+    let meanDev = sum / array.length;
+
+    return meanDev;
+  }
+
+  static findVar(array) {
+    // declare a sum variable and initialize to 0
+    let sum = 0;
+    // set a loop to sum (x- mean) ** 2 for all values of x in array(squared difference)
+    for (let x of array) {
+      sum = sum + (x - DataSet.calcMean(array)) ** 2;
+    }
+
+    // divide the sum by array length to get variance (mea of squared difference)
+    let variance = sum / array.length;
+
+    return variance;
+  }
+
+  static findStanDev(array) {
+    // this is simply the square root of variance so...
+    return Math.sqrt(DataSet.calcVar(array));
+  }
+
+    
 
 
     
