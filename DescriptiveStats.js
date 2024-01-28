@@ -131,7 +131,68 @@ class NumSet {
     return Math.sqrt(DataSet.calcVar(array));
   }
 
-    
+static calcQuartDev(array) {
+    //1. sort the array in ascending order
+    array = array.sort((a, b) => a - b);
+
+    // capture the length of my array and the middle value index in variables
+    let length = array.length;
+    let middleIndex = Math.floor(array.length / 2);
+
+    //2. split the array into quartiles Q1(lower half) and Q3(upper half)
+    let Q1list;
+    let Q3list;
+
+    // when array is odd, split array this way
+    if (length % 2 !== 0) {
+      Q1list = array.slice(0, middleIndex);
+      Q3list = array.slice(middleIndex + 1);
+    }
+
+    // when array is even, split as follows
+    else {
+      Q1list = array.slice(0, middleIndex + 1);
+      Q3list = array.slice(middleIndex - 1);
+    }
+
+    //3. for Q1, get the median of the Q1List
+    let Q1;
+    Q1 = DataSet.calcMedian(Q1list);
+
+    //4. for Q3, get the median of the Q3List
+    let Q3;
+    Q3 = DataSet.calcMedian(Q3list);
+
+    //5. finally get quartile deviation = (Q3 - Q1) / 2
+    let quartDev = (Q3 - Q1) / 2;
+    return quartDev;
+  }
+}
+
+/* let mean = (DataSet.calcMean([1, 2, 5, 6, 7]));
+console.log(`The mean of this dataset is ${mean}`);
+
+let median = DataSet.calcMedian([6, 8, 2, 4, 8, 9, 0]);
+console.log(`The median of this dataset is ${median}`)
+
+let mode = DataSet.calcMode([6, 8, 2, 6, 6, 6, 6, 4, 8, 9, 0]);
+console.log(`The mode of this dataset is ${mode}`)
+
+let range = DataSet.calcRange([3, 5, 6, 2, 7, 9, 3])
+console.log(`The range of this dataset is ${range}`);
+
+let meanDev = DataSet.calcMeanDev([3, 5, 6, 2, 7, 9, 3]);
+console.log(`The mean deviation of this dataset is ${meanDev}`);
+
+let variance = DataSet.calcVar([3, 5, 6, 2, 7, 9, 3]);
+console.log(`The variance of this dataset is ${variance}`);
+
+let stanDev = DataSet.calcStanDev([3, 5, 6, 2, 7, 9, 3]);
+console.log(`The standard deviation of this dataset is ${stanDev}`); */
+
+let quartileDev = DataSet.calcQuartDev([3, 5, 6, 2, 7, 9, 3]);
+console.log(`The quartile deviation of this dataset is ${quartileDev}`);
+
 
 
     
