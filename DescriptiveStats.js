@@ -48,3 +48,28 @@ class NumSet {
         mapElements[element] = 1;
       }
     }
+
+  //2. filter only the no of occurence into an array
+
+    // create an array
+    let mappedArray = [];
+
+    // iterate through the object
+    for (let element in mapElements) {
+      // push the value of no of occurences into the array
+      mappedArray.push(mapElements[element]);
+    }
+
+    //3. find the max value in the mappedArray
+    let max = DataSet.maxValue(mappedArray);
+
+    //4. get the key element that matches with the max-value
+    for (let key in mapElements) {
+      if (mapElements[key] === max) {
+        return key;
+      }
+    }
+  }
+
+    
+    
