@@ -131,7 +131,7 @@ class NumSet {
     return Math.sqrt(DataSet.calcVar(array));
   }
 
-static calcQuartDev(array) {
+static findQuartDev(array) {
     //1. sort the array in ascending order
     array = array.sort((a, b) => a - b);
 
@@ -157,11 +157,11 @@ static calcQuartDev(array) {
 
     //3. for Q1, get the median of the Q1List
     let Q1;
-    Q1 = DataSet.calcMedian(Q1list);
+    Q1 = NumSet.findMedian(Q1list);
 
     //4. for Q3, get the median of the Q3List
     let Q3;
-    Q3 = DataSet.calcMedian(Q3list);
+    Q3 = NumSet.findMedian(Q3list);
 
     //5. finally get quartile deviation = (Q3 - Q1) / 2
     let quartDev = (Q3 - Q1) / 2;
@@ -169,28 +169,28 @@ static calcQuartDev(array) {
   }
 }
 
-/* let mean = (DataSet.calcMean([1, 2, 5, 6, 7]));
+/* let mean = (NumSet.findMean([1, 2, 5, 6, 7]));
 console.log(`The mean of this dataset is ${mean}`);
 
-let median = DataSet.calcMedian([6, 8, 2, 4, 8, 9, 0]);
+let median = NumSet.findMedian([6, 8, 2, 4, 8, 9, 0]);
 console.log(`The median of this dataset is ${median}`)
 
-let mode = DataSet.calcMode([6, 8, 2, 6, 6, 6, 6, 4, 8, 9, 0]);
+let mode = NumSet.findMode([6, 8, 2, 6, 6, 6, 6, 4, 8, 9, 0]);
 console.log(`The mode of this dataset is ${mode}`)
 
-let range = DataSet.calcRange([3, 5, 6, 2, 7, 9, 3])
+let range = NumSet.findRange([3, 5, 6, 2, 7, 9, 3])
 console.log(`The range of this dataset is ${range}`);
 
-let meanDev = DataSet.calcMeanDev([3, 5, 6, 2, 7, 9, 3]);
+let meanDev = NumSet.findMeanDev([3, 5, 6, 2, 7, 9, 3]);
 console.log(`The mean deviation of this dataset is ${meanDev}`);
 
-let variance = DataSet.calcVar([3, 5, 6, 2, 7, 9, 3]);
+let variance = NumSet.findVar([3, 5, 6, 2, 7, 9, 3]);
 console.log(`The variance of this dataset is ${variance}`);
 
-let stanDev = DataSet.calcStanDev([3, 5, 6, 2, 7, 9, 3]);
+let stanDev = NumSet.findStanDev([3, 5, 6, 2, 7, 9, 3]);
 console.log(`The standard deviation of this dataset is ${stanDev}`); */
 
-let quartileDev = DataSet.calcQuartDev([3, 5, 6, 2, 7, 9, 3]);
+let quartileDev = NumSet.findQuartDev([3, 5, 6, 2, 7, 9, 3]);
 console.log(`The quartile deviation of this dataset is ${quartileDev}`);
 
 
