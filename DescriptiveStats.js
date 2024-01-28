@@ -1,5 +1,5 @@
 class NumSet {
-    static setMean(array) {
+    static findMean(array) {
       let sum = 0;
       for (let i of array) {
         sum += i;
@@ -9,7 +9,7 @@ class NumSet {
       return mean;
     }
   
-    static setMedian(array) {
+    static findMedian(array) {
       // first ensure that the array is sorted
       array = array.sort((a, b) => a - b);
   
@@ -34,7 +34,7 @@ class NumSet {
       }
     }
 
-    static setMode(array) {
+    static findMode(array) {
     //1. create an object to hold "element : no of times it appears in array"
     let mapElements = {};
     //scan through my array
@@ -70,6 +70,36 @@ class NumSet {
       }
     }
   }
+
+ static maxValue(array) {
+    let max = array[0];
+    for (let i of array) {
+      if (max < i) {
+        max = i;
+      }
+    }
+    return max;
+  }
+
+  static minValue(array) {
+    let min = array[0];
+    for (let i of array) {
+      if (min > i) {
+        min = i;
+      }
+    }
+    return min;
+  }
+
+  static findRange(array) {
+    let range = DataSet.maxValue(array) - DataSet.minValue(array);
+    console.log(`The range of this dataset is ${range}`);
+
+    return range;
+  }
+
+
+
 
     
     
